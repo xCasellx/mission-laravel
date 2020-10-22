@@ -33,9 +33,6 @@
             </div>
         </div>
     </main>
-    <div id="test">
-
-    </div>
 @endsection
 
 

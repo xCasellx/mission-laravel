@@ -17,7 +17,7 @@ class CabinetController extends Controller
             ->join("countries" , 'regions.country_id', "=" , "countries.id")
             ->where("cities.id", $user["town_id"])
             ->get()[0];
-        $user["image"] = ($user["folder"] === null)? 'images/nan.png' : "users/".$user["folder"].'/avatar.png';
+        $user["image"] = ($user["folder"] === null)? 'images/nan.png' : "users/".$user["folder"].'/avatar.png?'.time();
         return view("cabinet")->with("user", $user);
     }
 }

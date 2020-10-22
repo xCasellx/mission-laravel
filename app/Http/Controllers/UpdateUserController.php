@@ -58,7 +58,7 @@ class UpdateUserController extends Controller
         User::where("id",$user["id"])->update([
             "password" => Hash::make($data['new_password'])
         ]);
-        return redirect(route("edit"));
+        return redirect(route("edit"))->with('message', 'Edited Success.');
     }
 
     public function editImage(Request $request)

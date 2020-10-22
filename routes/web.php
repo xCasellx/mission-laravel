@@ -11,9 +11,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/edit', 'UpdateUserController@editData')->name("edit");
     Route::post('/edit/password', 'UpdateUserController@editPassword')->name("edit.password");
     Route::post('/edit/image', 'UpdateUserController@editImage')->name("edit.image");
+    Route::post('/comment/create', 'CommentsController@create')->name("comment.create");
 
 
     Route::get('/', 'CabinetController@index')->name("home");
+    Route::get('/test', 'CommentsController@tree')->name("test");
     Route::get('/edit', 'UpdateUserController@index')->name("edit");
     Route::get('/cabinet', 'CabinetController@index')->name("cabinet");
     Route::get('/comments', 'CommentsController@index')->name("comments");
