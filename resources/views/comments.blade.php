@@ -3,13 +3,18 @@
 
 
 @section("content")
-    <main role="main" class="bg-white p-3 container">
+    <main role="main" class=" p-3 container">
         @if(session()->has('message_success'))
             <div class="message-success mt-2 alert alert-success">
                 {{ session()->get('message_success') }}
             </div>
         @endif
-       <div class="container">
+        @if(session()->has('message_error'))
+            <div class="message-success mt-2 alert alert-danger">
+                {{ session()->get('message_success') }}
+            </div>
+        @endif
+       <div class="container bg-white p-3">
            <form class="m-3 " method="POST" action="{{route("comment.create")}}">
                @csrf
                <div class="">
@@ -53,6 +58,49 @@
                             <button type="button" class=" btn btn-danger" data-dismiss="modal"><strong>Close</strong></button>
                         </div>
                     </form>
+                </div>
+                <div class="p-1 bg-dark modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="EditModal">
+        <div class=" modal-dialog" >
+            <div class="bg-dark modal-content p-0" >
+                <div class="text-center text-light modal-header">
+                    <div class="container">
+                        <h4 class="modal-title">Edit comment</h4>
+                    </div>
+                </div>
+                <div class="bg-light modal-body" >
+                    <form action="{{route("comment.edit")}}" method="POST" class="form-comment">
+                        @csrf
+                        <input type="hidden" id="comment_id" name="comment_id">
+                        <textarea required class="form-control border-dark border" maxlength="512" id="edit_text_comment" name="text" rows="10" cols="70"></textarea>
+                        <div class="mt-2 float-right">
+                            <button type="submit"   id="modal_button" class="off btn btn-success" ><strong>Seve</strong></button>
+                            <button type="button" class=" btn btn-danger" data-dismiss="modal"><strong>Close</strong></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="p-1 bg-dark modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="DeleteModal">
+        <div class=" modal-dialog" >
+            <div class="bg-dark modal-content p-0" >
+                <div class="text-center text-light modal-header">
+                    <div class="container">
+                        <h4 class="modal-title">Delete comment</h4>
+                    </div>
+                </div>
+                <div class="bg-light modal-body" >
+                    <div class="mt-2 offset-4">
+                        <a href="/comment/delete/"  id="modal_button_delete" class="off btn btn-danger " ><strong>Delete</strong></a>
+                        <button type="button" class=" btn btn-success" data-dismiss="modal"><strong>Close</strong></button>
+                    </div>
                 </div>
                 <div class="p-1 bg-dark modal-footer"></div>
             </div>
