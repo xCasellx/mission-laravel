@@ -10,11 +10,14 @@ $(document).on("click", ".response-comment", function () {
     $("#parent_id").val(comment_id);
 })
 
+$(".form-comment").on("submit", function () {
+    $(".create-btn").attr("disabled", true);
+})
+
 $(document).on("click", ".edit-comment", function () {
     let comment_id = $(this).attr("data-id");
     $("#comment_id").val(comment_id);
     let text = $(".comments-text[data-id = '"+comment_id+"']").text().trim();
-
     $("#edit_text_comment").text(text);
 
 })

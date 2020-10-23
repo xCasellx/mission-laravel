@@ -15,7 +15,7 @@
             </div>
         @endif
        <div class="container bg-white p-3">
-           <form class="m-3 " method="POST" action="{{route("comment.create")}}">
+           <form class="m-3 form-comment" method="POST" action="{{route("comment.create")}}">
                @csrf
                <div class="">
                    <textarea name="text" rows="10" maxlength="512" class="@error('text') is-invalid @enderror form-control "></textarea>
@@ -28,7 +28,7 @@
                </div>
                <div class="mt-2 form-group row mb-0">
                    <div class="col-md-6 offset-md-0">
-                       <button type="submit" class="btn btn-primary">
+                       <button type="submit" class="create-btn btn btn-primary">
                            {{ __("Send") }}
                        </button>
                    </div>
@@ -54,8 +54,8 @@
                         <input type="hidden" id="parent_id" name="parent_id">
                         <textarea required class="form-control border-dark border" maxlength="512" id="modal_comment" name="text" rows="10" cols="70"></textarea>
                         <div class="mt-2 float-right">
-                            <button type="submit"   id="modal_button" class="off btn btn-success" ><strong>Send</strong></button>
-                            <button type="button" class=" btn btn-danger" data-dismiss="modal"><strong>Close</strong></button>
+                            <button type="submit"   id="modal_button" class="create-btn off btn btn-success" ><strong>Send</strong></button>
+                            <button type="button" class="create-btn btn btn-danger" data-dismiss="modal"><strong>Close</strong></button>
                         </div>
                     </form>
                 </div>
@@ -78,8 +78,8 @@
                         <input type="hidden" id="comment_id" name="comment_id">
                         <textarea required class="form-control border-dark border" maxlength="512" id="edit_text_comment" name="text" rows="10" cols="70"></textarea>
                         <div class="mt-2 float-right">
-                            <button type="submit"   id="modal_button" class="off btn btn-success" ><strong>Seve</strong></button>
-                            <button type="button" class=" btn btn-danger" data-dismiss="modal"><strong>Close</strong></button>
+                            <button type="submit"   id="modal_button" class="create-btn off btn btn-success" ><strong>Seve</strong></button>
+                            <button type="button" class="create-btn btn btn-danger" data-dismiss="modal"><strong>Close</strong></button>
                         </div>
                     </form>
                 </div>
@@ -98,8 +98,8 @@
                 </div>
                 <div class="bg-light modal-body" >
                     <div class="mt-2 offset-4">
-                        <a href="/comment/delete/"  id="modal_button_delete" class="off btn btn-danger " ><strong>Delete</strong></a>
-                        <button type="button" class=" btn btn-success" data-dismiss="modal"><strong>Close</strong></button>
+                        <a href="/comment/delete/"  id="modal_button_delete" class="create-btn off btn btn-danger " ><strong>Delete</strong></a>
+                        <button type="button" class="create-btn btn btn-success" data-dismiss="modal"><strong>Close</strong></button>
                     </div>
                 </div>
                 <div class="p-1 bg-dark modal-footer"></div>
